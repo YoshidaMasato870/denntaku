@@ -31,8 +31,13 @@
       let display=document.querySelector(".display");
       display=display+result;
       function addNumber(elem) {
-        display.value+=elem.value;
-        console.log(display.value); 
+        if(display.value.slice(0)=="0"){
+          display.value+="";
+          console.log(display.value);
+        }else{
+          display.value+=elem.value;
+          console.log(display.value); 
+        }
       }
       function addArithmeticSymbol(elem){
         if(display.value.slice(-1)=="+"||display.value.slice(-1)=="-"||
@@ -68,7 +73,9 @@
         }
       }
       function addNumberZero(elem){
-        if(display.value!==0){
+        if(display.value.slice(0)=="0"){
+          display.value+="";
+        }else{
           display.value+=elem.value;
           console.log(display.value);
         }
